@@ -16,8 +16,12 @@ LIBZZUF = \
     libzzuf/debug.c libzzuf/debug.h \
     libzzuf/sys.c libzzuf/sys.h \
     libzzuf/network.c libzzuf/network.h \
-    libzzuf/lib-fd.c libzzuf/lib-mem.c libzzuf/lib-signal.c \
+    libzzuf/lib-fd.c libzzuf/lib-signal.c \
     libzzuf/lib-stream.c libzzuf/lib-win32.c libzzuf/lib-load.h
+
+if !OSX
+LIBZZUF += libzzuf/lib-mem.c
+endif
 
 COMMON = \
     common/common.h \
