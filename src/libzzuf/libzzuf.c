@@ -133,7 +133,9 @@ void libzzuf_init(void)
 #endif
 
     /* We need malloc() and a few others as soon as possible */
+#ifndef __APPLE__
     _zz_mem_init();
+#endif
 
     tmp = getenv("ZZUF_SEED");
     if (tmp && *tmp)

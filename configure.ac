@@ -97,6 +97,16 @@ AC_CHECK_TYPES(fpos64_t, [], [],
    #define _LARGEFILE_SOURCE
    #include <stdio.h>])
 
+# Detect the target system
+AC_CANONICAL_HOST
+build_osx=no
+case "${host_os}" in
+    darwin*)
+        build_osx=yes
+        ;;
+esac
+AM_CONDITIONAL([OSX], [test "$build_osx" = "yes"])
+
 AC_MSG_CHECKING(for connect() second argument)
 AC_TRY_COMPILE([#include <sys/types.h>
                 #include <sys/socket.h>],
