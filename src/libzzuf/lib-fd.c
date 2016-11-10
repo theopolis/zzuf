@@ -63,6 +63,8 @@
 #include <stdarg.h>
 #if defined HAVE_AIO_H
 #   include <aio.h>
+#else
+#   undef HAVE_AIO_READ
 #endif
 
 #include "libzzuf.h"
